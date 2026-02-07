@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Career Compass - Features</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:700|Montserrat:400,600" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header */
+    header {
+      background: #003366;
+      padding: 15px 0;
+    }
+    header .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo img {
+      height: 60px;
+      width: auto;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li.active a {
+      color: #ffd700;
+    }
+
+    /* Section */
+    .section {
+      padding: 60px 0;
+    }
+    .section-header {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .section-header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #003366;
+    }
+    .section-header p {
+      color: #555;
+    }
+
+    /* Feature Boxes */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .feature-box {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1 1 250px;
+      max-width: 250px;
+    }
+    .feature-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .feature-icon {
+      font-size: 45px;
+      color: #0056b3;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+    .feature-box:hover .feature-icon {
+      color: #ffd700;
+    }
+    .feature-box h4 {
+      color: #003366;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .feature-box p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+    .footer-nav {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .footer-nav a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-nav a:hover {
+      color: #ffd700;
+    }
+    .footer-social {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .footer-social a {
+      color: #fff;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+    .footer-social a:hover {
+      color: #ffd700;
+    }
+    .footer-copyright {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="home.html">
+          <img src="img/Career_Compass_1.png" alt="Career Compass Logo">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="active"><a href="features.html">Features</a></li>
+          <li><a href="Quizes.html">Quiz</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <div id="features" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Explore Features</h2>
+        <p class="lead">Grow your future with personalized insights!</p>
+      </div>
+
+      <div class="row">
+        <div class="feature-box">
+          <a href="roadmap.html" style="text-decoration:none; color:inherit; display:block;"></a>
+          <i class="feature-icon fa fa-map"></i>
+          <h4>Personalized Roadmap</h4>
+          <p>Step‑by‑step career and learning plan tailored to your goals, with milestones and recommended courses to keep you on track.</p>
+          <a href="roadmap.html" style="display:inline-block;margin-top:10px;padding:8px 15px;background:#003366;color:#fff;border-radius:5px;text-decoration:none;width: 100px;height: 30px;">Start Now!</a>
+
+         
+        </div>
+
+        <div class="feature-box">
+          <i class="feature-icon fa fa-pencil"></i>
+          <h4>Resume Maker</h4>
+          <p>Create polished, ATS‑friendly resumes in minutes. Highlight your strengths and align your profile with recruiter expectations.</p>
+           <a href="resumebuild.html" style="display:inline-block;margin-top:10px;padding:8px 15px;background:#003366;color:#fff;border-radius:5px;text-decoration:none;width: 100px;height: 30px;">Create Now!</a>
+
+        </div>
+
+        <div class="feature-box">
+          <i class="feature-icon fa fa-file-text"></i>
+          <h4>Resume Analysis</h4>
+          <p>AI‑powered feedback on structure, clarity, and keyword optimization to make your resume industry‑ready and impactful.</p>
+           <a href="resumeanalyse.html" style="display:inline-block;margin-top:10px;padding:8px 15px;background:#003366;color:#fff;border-radius:5px;text-decoration:none;width: 100px;height: 30px;">Analyse Now!</a>
+
+        </div>
+
+        <div class="feature-box">
+          <i class="feature-icon fa fa-comments"></i>
+          <h4>AI Career Mentor Chatbot</h4>
+          <p>Always‑on guidance through a conversational AI mentor. Ask questions, get instant feedback, and prepare for interviews anytime.</p>
+           <a href="chatbot.html" style="display:inline-block;margin-top:10px;padding:8px 15px;background:#003366;color:#fff;border-radius:5px;text-decoration:none;width: 100px;height: 30px;">Chat Now!</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <ul class="footer-nav">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="Quizes.html">Quiz</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <ul class="footer-social">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+      </ul>
+
+      <div class="footer-copyright">
+        <span>&copy; 2025 Career Compass. All Rights Reserved. | Made with <i class="fa fa-heart-o"></i> by Hansika</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Simple JS for active nav highlight -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const links = document.querySelectorAll("nav ul li a");
+      links.forEach(link => {
+        if(link.href === window.location.href) {
+          link.parentElement.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+    

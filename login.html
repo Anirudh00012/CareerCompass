@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Career Compass | Login</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato:700|Montserrat:400,600" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Montserrat;
+}
+
+body{
+height:100vh;
+background:linear-gradient(135deg,#e3f2fd,#bbdefb);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.login-container{
+width:100%;
+max-width:380px;
+padding:12px;
+}
+
+.login-card{
+background:white;
+padding:32px 26px;
+border-radius:16px;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+text-align:center;
+}
+
+.logo img{
+width:90px;
+margin-bottom:10px;
+}
+
+h1{
+font-family:Lato;
+color:#1a237e;
+margin-bottom:5px;
+}
+
+.tagline{
+font-size:13px;
+color:#777;
+margin-bottom:18px;
+letter-spacing:.5px;
+}
+
+.welcome{
+font-size:14px;
+color:#555;
+margin-bottom:22px;
+}
+
+.input-group{
+text-align:left;
+margin-bottom:16px;
+}
+
+.input-group label{
+font-size:13px;
+color:#444;
+margin-bottom:6px;
+display:block;
+}
+
+.input-group input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+font-size:14px;
+}
+
+.input-group input:focus{
+outline:none;
+border-color:#1a237e;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#1a237e;
+border:none;
+border-radius:8px;
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+margin-top:8px;
+}
+
+button:hover{
+background:#0d155a;
+}
+
+.signup-text{
+margin-top:18px;
+font-size:13px;
+color:#555;
+}
+
+.signup-text a{
+color:#1a237e;
+text-decoration:none;
+font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+<div class="login-card">
+
+<div class="logo">
+<img src="img/logow.jpeg">
+</div>
+
+<h1>Career Compass</h1>
+<div class="tagline">INTELLIGENT CAREER GUIDE</div>
+
+<div class="welcome">
+Welcome back 👋 Ready to navigate your future?
+</div>
+
+<form onsubmit="loginUser(event)">
+
+<div class="input-group">
+<label>Username</label>
+<input id="username" placeholder="Enter your username" required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input id="password" type="password" placeholder="Enter your password" required>
+</div>
+
+<button type="submit">Sign In</button>
+
+</form>
+
+<div class="signup-text">
+Don’t have an account?
+<a href="register.html">Sign up here</a>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function loginUser(e){
+e.preventDefault();
+
+const saved=JSON.parse(localStorage.getItem("careerUser"));
+
+if(!saved){
+alert("No account found. Please register first.");
+window.location.href="register.html";
+return;
+}
+
+if(username.value===saved.username && password.value===saved.password){
+alert("Login successful!");
+localStorage.setItem("loggedIn","true");
+window.location.href="home.html";
+}else{
+alert("Invalid username or password");
+}
+
+}
+
+</script>
+
+</body>
+</html>

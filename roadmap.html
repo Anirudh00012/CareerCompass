@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Career Roadmap Generator</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:700|Montserrat:400,600" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #fff;
+      padding: 15px 0;
+      border-bottom: 3px solid #000;
+    }
+    header .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo img {
+      height: 60px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav ul li a:hover {
+      color: #1a237e;
+    }
+
+    .container-main {
+      width: 80%;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1a237e;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 15px;
+      background: #1a237e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .roadmap {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fafafa;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .section {
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">
+      <img src="img/logow.jpeg">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="Quizes.html">Quiz</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container-main">
+<h1>Career Roadmap Generator</h1>
+
+<input type="text" id="academic" placeholder="Academic Background">
+<input type="text" id="interests" placeholder="Interests">
+<input type="text" id="skills" placeholder="Skills (comma separated)">
+
+<button onclick="generateRoadmap()">Generate Roadmap</button>
+
+<div class="roadmap" id="roadmapOutput">
+<p>Your career roadmap will appear here</p>
+</div>
+</div>
+
+<footer>
+<p>&copy; 2025 Career Compass</p>
+</footer>
+
+<script>
+function generateRoadmap() {
+
+const academic = document.getElementById("academic").value.toLowerCase();
+const interests = document.getElementById("interests").value.toLowerCase();
+const skills = document.getElementById("skills").value.toLowerCase().split(",").map(s => s.trim());
+
+let recommendations = [];
+
+if (academic.includes("computer") || skills.includes("java") || skills.includes("python")) {
+recommendations.push({
+path:"Software Development",
+shortTerm:"Internships, open-source projects",
+longTerm:"Software Engineer, Full Stack Developer",
+alternative:"QA or Product Management"
+});
+}
+
+if (interests.includes("data") || skills.includes("sql")) {
+recommendations.push({
+path:"Data Science",
+shortTerm:"Analytics internships, ML projects",
+longTerm:"Data Scientist, ML Engineer",
+alternative:"BI Analyst"
+});
+}
+
+if (interests.includes("marketing")) {
+recommendations.push({
+path:"Digital Marketing",
+shortTerm:"SEO internships",
+longTerm:"Marketing Manager",
+alternative:"Brand Management"
+});
+}
+
+if (interests.includes("security")) {
+recommendations.push({
+path:"Cybersecurity",
+shortTerm:"Security labs, CEH basics",
+longTerm:"Security Analyst, Ethical Hacker",
+alternative:"Network Engineer"
+});
+}
+
+if (interests.includes("design") || skills.includes("figma")) {
+recommendations.push({
+path:"UI/UX Design",
+shortTerm:"Design internships, case studies",
+longTerm:"Product Designer",
+alternative:"Frontend Developer"
+});
+}
+
+if (interests.includes("cloud") || skills.includes("aws")) {
+recommendations.push({
+path:"Cloud Computing",
+shortTerm:"AWS certification",
+longTerm:"Cloud Architect",
+alternative:"DevOps"
+});
+}
+
+if (academic.includes("finance")) {
+recommendations.push({
+path:"Finance",
+shortTerm:"Accounting internships",
+longTerm:"Financial Analyst",
+alternative:"Investment Banking"
+});
+}
+
+if (academic.includes("medical") || interests.includes("health")) {
+recommendations.push({
+path:"Healthcare",
+shortTerm:"Clinical internships",
+longTerm:"Healthcare Specialist",
+alternative:"Medical Research"
+});
+}
+
+if (interests.includes("startup")) {
+recommendations.push({
+path:"Entrepreneurship",
+shortTerm:"Startup incubation",
+longTerm:"Founder / CEO",
+alternative:"Business Consultant"
+});
+}
+
+if (academic.includes("education")) {
+recommendations.push({
+path:"Teaching",
+shortTerm:"Teaching assistant",
+longTerm:"Professor / Educator",
+alternative:"EdTech"
+});
+}
+
+if (academic.includes("mechanical")) {
+recommendations.push({
+path:"Mechanical Engineering",
+shortTerm:"Core internships",
+longTerm:"Design Engineer",
+alternative:"Manufacturing"
+});
+}
+
+let html="";
+
+if(recommendations.length===0){
+html="<p>No matches found. Try adding more info.</p>";
+}else{
+recommendations.forEach(rec=>{
+html+=`
+<div class="section">
+<h3>${rec.path}</h3>
+<p><strong>Short-Term:</strong> ${rec.shortTerm}</p>
+<p><strong>Long-Term:</strong> ${rec.longTerm}</p>
+<p><strong>Alternative:</strong> ${rec.alternative}</p>
+</div>`;
+});
+}
+
+document.getElementById("roadmapOutput").innerHTML=html;
+
+}
+</script>
+
+</body>
+</html>

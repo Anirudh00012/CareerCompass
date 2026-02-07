@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Resume Maker - Career Compass</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato:700|Montserrat:400,600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+body{
+font-family:'Lato',sans-serif;
+background:#f4f6f8;
+margin:0;
+padding:0;
+}
+
+/* Header */
+
+header{
+background:#fff;
+padding:15px 0;
+border-bottom:3px solid #000;
+}
+
+header .container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header .logo img{
+height:60px;
+}
+
+nav ul{
+list-style:none;
+display:flex;
+margin:0;
+padding:0;
+}
+
+nav ul li{
+margin:0 15px;
+}
+
+nav ul li a{
+color:#000;
+text-decoration:none;
+font-weight:600;
+}
+
+nav ul li a:hover{
+color:#1a237e;
+}
+
+/* Main */
+
+.container-main{
+width:80%;
+margin:auto;
+background:white;
+padding:25px;
+margin-top:30px;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1{
+text-align:center;
+color:#1a237e;
+}
+
+h2{
+color:#333;
+border-bottom:1px solid #ccc;
+padding-bottom:5px;
+margin-top:25px;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:15px;
+border-radius:5px;
+border:1px solid #ccc;
+font-family:Montserrat;
+}
+
+button{
+padding:10px 15px;
+background:#1a237e;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+width:100%;
+margin-top:10px;
+font-size:15px;
+}
+
+button:hover{
+background:#0d155a;
+}
+
+/* Resume Preview */
+
+#resumePreview{
+margin-top:25px;
+padding:30px;
+background:white;
+border-radius:8px;
+border:1px solid #ddd;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+font-family:Montserrat;
+}
+
+.resume-header{
+text-align:center;
+border-bottom:2px solid #1a237e;
+padding-bottom:10px;
+margin-bottom:20px;
+}
+
+.resume-header h2{
+margin:0;
+color:#1a237e;
+}
+
+.resume-contact{
+font-size:14px;
+color:#555;
+}
+
+.resume-section{
+margin-bottom:18px;
+}
+
+.resume-section h3{
+color:#1a237e;
+margin-bottom:5px;
+border-bottom:1px solid #ccc;
+padding-bottom:4px;
+}
+
+.resume-section p{
+margin:4px 0;
+line-height:1.6;
+}
+
+/* Footer */
+
+footer{
+background:#003366;
+color:#fff;
+text-align:center;
+padding:30px 0;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="logo">
+<img src="img/logow.jpeg">
+</div>
+
+<nav>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="features.html">Features</a></li>
+<li><a href="Quizes.html">Quiz</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<div class="container-main">
+
+<h1>Resume Maker</h1>
+
+<h2>Personal Info</h2>
+<input id="name" placeholder="Full Name">
+<input id="email" placeholder="Email">
+<input id="phone" placeholder="Phone Number">
+<input id="address" placeholder="Address">
+<input id="linkedin" placeholder="LinkedIn URL">
+<input id="github" placeholder="GitHub URL">
+
+<h2>Professional Info</h2>
+<input id="title" placeholder="Job Title">
+<textarea id="summary" placeholder="Professional Summary / Objective"></textarea>
+
+<h2>Education</h2>
+<textarea id="education" placeholder="Degree | University | Year"></textarea>
+
+<h2>Work Experience</h2>
+<textarea id="experience" placeholder="Company | Role | Duration | Description"></textarea>
+
+<h2>Projects</h2>
+<textarea id="projects" placeholder="Project Name | Description | Technologies"></textarea>
+
+<h2>Skills</h2>
+<input id="skills" placeholder="Skills (comma separated)">
+
+<h2>Certificates</h2>
+<textarea id="certificates" placeholder="Certificate Name | Issuer | Year"></textarea>
+
+<button onclick="generateResume()">Create Resume</button>
+<button onclick="saveImage()">Save as Image</button>
+<button onclick="savePDF()">Save as PDF</button>
+<button onclick="analyzeResume()">Analyze Resume</button>
+
+<div id="resumePreview"></div>
+
+</div>
+
+<footer>
+<p>&copy; 2025 Career Compass | Made with <i class="fa fa-heart-o"></i></p>
+</footer>
+
+<script>
+
+function generateResume(){
+
+const resumeData={
+personal:{
+name:name.value,
+email:email.value,
+phone:phone.value,
+address:address.value,
+linkedin:linkedin.value,
+github:github.value
+},
+professional:{
+title:title.value,
+summary:summary.value
+},
+education:education.value,
+experience:experience.value,
+projects:projects.value,
+skills:skills.value,
+certificates:certificates.value
+};
+
+localStorage.setItem("resumeData",JSON.stringify(resumeData));
+
+document.getElementById("resumePreview").innerHTML=`
+
+<div class="resume-header">
+<h2>Resume</h2>
+<p class="resume-contact">
+${resumeData.personal.email} | ${resumeData.personal.phone}<br>
+${resumeData.personal.address}
+</p>
+</div>
+
+<div class="resume-section">
+<h3>${resumeData.professional.title}</h3>
+<p>${resumeData.professional.summary}</p>
+</div>
+
+<div class="resume-section">
+<h3>Education</h3>
+<p>${resumeData.education}</p>
+</div>
+
+<div class="resume-section">
+<h3>Experience</h3>
+<p>${resumeData.experience}</p>
+</div>
+
+<div class="resume-section">
+<h3>Projects</h3>
+<p>${resumeData.projects}</p>
+</div>
+
+<div class="resume-section">
+<h3>Skills</h3>
+<p>${resumeData.skills}</p>
+</div>
+
+<div class="resume-section">
+<h3>Certificates</h3>
+<p>${resumeData.certificates}</p>
+</div>
+
+`;
+}
+
+function saveImage(){
+html2canvas(document.getElementById("resumePreview")).then(canvas=>{
+const link=document.createElement("a");
+link.download="resume.png";
+link.href=canvas.toDataURL();
+link.click();
+});
+}
+
+function savePDF(){
+html2canvas(document.getElementById("resumePreview")).then(canvas=>{
+const img=canvas.toDataURL("image/png");
+const pdf=new jspdf.jsPDF();
+pdf.addImage(img,"PNG",10,10,190,0);
+pdf.save("resume.pdf");
+});
+}
+
+function analyzeResume(){
+window.location.href="R_Analyser.html";
+}
+
+</script>
+
+</body>
+</html>

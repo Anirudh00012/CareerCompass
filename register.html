@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Career Compass | Register</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato:700|Montserrat:400,600" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Montserrat;
+}
+
+body{
+height:100vh;
+background:linear-gradient(135deg,#e3f2fd,#bbdefb);
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.register-container{
+width:100%;
+max-width:420px;
+padding:15px;
+}
+
+.register-card{
+background:white;
+padding:35px 28px;
+border-radius:18px;
+box-shadow:0 18px 40px rgba(0,0,0,.2);
+text-align:center;
+}
+
+.logo img{
+width:90px;
+margin-bottom:10px;
+}
+
+h1{
+font-family:Lato;
+color:#1a237e;
+margin-bottom:6px;
+}
+
+.subtitle{
+font-size:14px;
+color:#555;
+margin-bottom:22px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-bottom:14px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+.row{
+display:flex;
+gap:10px;
+}
+
+input:focus{
+outline:none;
+border-color:#1a237e;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#1a237e;
+border:none;
+border-radius:8px;
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+margin-top:5px;
+}
+
+button:hover{
+background:#0d155a;
+}
+
+.login-text{
+margin-top:18px;
+font-size:13px;
+color:#555;
+}
+
+.login-text a{
+color:#1a237e;
+text-decoration:none;
+font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="register-container">
+<div class="register-card">
+
+<div class="logo">
+<img src="img/logow.jpeg">
+</div>
+
+<h1>Join Career Compass</h1>
+<p class="subtitle">Navigate your future with confidence</p>
+
+<form onsubmit="registerUser(event)">
+
+<div class="row">
+<input id="fname" placeholder="First Name" required>
+<input id="lname" placeholder="Last Name" required>
+</div>
+
+<input id="username" placeholder="Username" required>
+<input id="email" type="email" placeholder="Email Address" required>
+<input id="password" type="password" placeholder="Password (min 6 chars)" required>
+<input id="confirm" type="password" placeholder="Confirm Password" required>
+
+<button type="submit">Create Account</button>
+
+</form>
+
+<div class="login-text">
+Already have an account?
+<a href="login.html">Sign in here</a>
+</div>
+
+</div>
+</div>
+
+<script>
+
+function registerUser(e){
+e.preventDefault();
+
+const pass=document.getElementById("password").value.trim();
+const conf=document.getElementById("confirm").value.trim();
+
+if(pass.length<6){
+alert("Password must be at least 6 characters");
+return;
+}
+
+if(pass!==conf){
+alert("Passwords do not match");
+return;
+}
+
+const user={
+fname:fname.value,
+lname:lname.value,
+username:username.value,
+email:email.value,
+password:pass
+};
+
+localStorage.setItem("careerUser",JSON.stringify(user));
+
+alert("Registration successful!");
+
+window.location.href="home.html";
+}
+
+</script>
+
+</body>
+</html>
+
